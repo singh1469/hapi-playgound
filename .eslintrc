@@ -1,0 +1,11 @@
+{
+    "extends": "airbnb/base",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "rules": {
+        "quotes": [2, "single"],
+        "indent": [2, 4],
+    }
+}
