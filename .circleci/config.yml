@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Running lint
           command: make lint
-  build:
+  build_artifact:
     working_directory: ~/hapi-playground
     docker:
       - image: docker:stable-git
@@ -56,6 +56,6 @@ workflows:
   build_and_test:
     jobs:
       - lint
-      - build:
+      - build_artifact:
           requires:
             - lint
