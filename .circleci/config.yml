@@ -4,6 +4,17 @@ jobs:
     docker:
       - image: docker:stable-git
     steps:
+      - run:
+          name: Install Make
+          command: |
+            apk add --update make
+      - run:
+          name: Install Docker Compose
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            mv ~/docker-compose /usr/local/bin/docker-compose
+      - setup_remote_docker
       - checkout
       - run:
           name: Running lint
