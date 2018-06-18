@@ -8,7 +8,7 @@ build-compose:
 .PHONY: build-compose
 
 build-artifact:
-        docker build . -t hapi-playground --build-arg=production
+	docker build . -t hapi-playground --build-arg=production
 .PHONY: build-artifact
 
 lint:
