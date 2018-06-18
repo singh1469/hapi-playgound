@@ -14,11 +14,19 @@ jobs:
           command: |
             apk add --update curl
       - run:
-          name: Install Docker Compose
+          name: Install PIP
           command: |
-            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            mv ~/docker-compose /usr/local/bin/docker-compose
+            apk add --no-cache python3 && \
+            python3 -m ensurepip && \
+            rm -r /usr/lib/python*/ensurepip && \
+            pip3 install --upgrade pip setuptools && \
+            if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+            if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+            rm -r /root/.cache
+      - run:
+          name: Install docker-compose
+          command: |
+            pip install docker-compose
       - setup_remote_docker
       - checkout
       - run:
