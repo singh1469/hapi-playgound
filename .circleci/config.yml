@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/my-app
     docker:
       - image: docker:stable-git
     steps:
@@ -22,4 +23,4 @@ jobs:
       - checkout
       - run:
           name: Running lint
-          command: make lint
+          command: cd ~/my-app && make lint
