@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  lint:
+    steps:
+      - checkout
+      - run:
+          name: Running lint
+          command: make lint
