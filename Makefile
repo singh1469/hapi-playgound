@@ -7,7 +7,7 @@ build-compose:
 	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${DEV_ARGS} build
 .PHONY: build-compose
 
-build-artifact
+build-artifact:
         docker build . -t hapi-playground --build-arg=production
 .PHONY: build-artifact
 
