@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  lint:
     working_directory: ~/hapi-playground
     docker:
       - image: docker:stable-git
@@ -32,7 +32,30 @@ jobs:
       - run:
           name: Docker-compose build
           command: |
-            make build
+            make build-compose
       - run:
           name: Running lint
           command: make lint
+  build_artifact:
+    working_directory: ~/hapi-playground
+    docker:
+      - image: docker:stable-git
+    steps:
+      - run:
+          name: Install Make
+          command: |
+            apk add --update make
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Build artifact
+          command: |
+            make build-artifact
+workflows:
+  version: 2
+    build_and_test:
+      jobs:
+        - lint
+        - build_artifact
+          requires:
+            - lint
