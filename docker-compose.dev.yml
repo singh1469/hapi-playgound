@@ -7,8 +7,6 @@ services:
       context: ./
       args:
         environment: development
-    volumes:
-      - ./.eslintrc:/usr/local/app/.eslintrc
     command: npm run lint
 
   app:
