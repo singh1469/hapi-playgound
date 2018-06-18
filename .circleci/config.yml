@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/my-app
+    working_directory: ~/hapi-playground
     docker:
       - image: docker:stable-git
     steps:
@@ -29,6 +29,9 @@ jobs:
             pip install docker-compose
       - setup_remote_docker
       - checkout
+  lint:
+    working_directory: ~/hapi-playground
+    steps:
       - run:
           name: Running lint
-          command: cd ~/my-app && make lint
+          command: make lint
