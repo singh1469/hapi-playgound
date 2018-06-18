@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/**",
+    "lint": "eslint lib/**",
     "serve": "nodemon --verbose --watch lib lib/index.js"
   },
   "author": "",
