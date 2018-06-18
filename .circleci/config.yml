@@ -1,6 +1,8 @@
 version: 2
 jobs:
   lint:
+    docker:
+      - image: docker:stable-git
     steps:
       - checkout
       - run:
