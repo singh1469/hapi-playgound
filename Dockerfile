@@ -15,6 +15,6 @@ COPY lib lib
 
 # Ugly - CircleCI 2.0 doesn't support (docker-compose) mounted volumes
 # Workaround, add dev file here to enable linting on CI
-COPY .eslintrc: .eslintrc
+COPY .eslintrc .eslintrc
 
 EXPOSE 8080
