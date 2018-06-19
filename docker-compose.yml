@@ -3,7 +3,7 @@ version: '3'
 services:
 
   app:
-    image: singh1469/hapi-playground:0.1.38
+    image: singh1469/hapi-playground:0.1.40
     container_name: hapi-app
     working_dir: /usr/local/app
     ports:
