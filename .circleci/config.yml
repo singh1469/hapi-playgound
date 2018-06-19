@@ -59,7 +59,7 @@ workflows:
   version: 2
   lint_and_build:
     jobs:
-      - lint
+      - lint:
           filters:
             branches:
               only:
