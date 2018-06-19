@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint lib/**",
-    "serve": "nodemon --verbose --watch lib lib/index.js"
+    "serve": "nodemon --verbose --watch lib lib/index.js",
+    "prod": "/usr/local/bin/node lib/index.js"
   },
   "author": "",
   "license": "ISC",

@@ -18,3 +18,5 @@ COPY lib lib
 COPY .eslintrc .eslintrc
 
 EXPOSE 8080
+
+CMD ["npm", "run", "prod"]
