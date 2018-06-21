@@ -1,0 +1,4 @@
+appName: "hapi"
+ns: "hp"
+dockerTagApi: "0.1.40"
+apiUrl: "api.hardiarl.com"
