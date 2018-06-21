@@ -1,10 +1,10 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-svc
-  namespace: hardiarl
+  name: svc-hapi-api
   labels:
-    app: api
+    app: svc-api
 spec:
   type: NodePort
   ports:
@@ -13,27 +13,26 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: api
+    app: pod-api
 ---
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: hapi-app
-  namespace: hardiarl
+  name: deploy-hapi-api
   labels:
-    app: api
+    app: pod-api
 spec:
   replicas: 2
   selector:
-    matchLabels:
-      app: api
+      matchLabels:
+        app: pod-api
   template:
     metadata:
       labels:
-        app: api
+        app: pod-api
     spec:
       containers:
-      - name: api
+      - name: pod-hapi-api
         image: singh1469/hapi-playground:0.1.40
         ports:
         - containerPort: 8080
