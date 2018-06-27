@@ -8,9 +8,9 @@ services:
       args:
         environment: development
     #CI can't mount volumes!
-    volumes:
-      - ./.eslintrc:/usr/local/app/.eslintrc
-      - ./lib:/usr/local/app/lib
+    #volumes:
+    #  - ./.eslintrc:/usr/local/app/.eslintrc
+    #  - ./lib:/usr/local/app/lib
     command: npm run lint
 
   test:
@@ -19,9 +19,9 @@ services:
       args:
         environment: development
     #CI can't mount volumes!
-    volumes:
-      - ./.eslintrc:/usr/local/app/.eslintrc
-      - ./lib:/usr/local/app/lib
+    #volumes:
+    #  - ./.eslintrc:/usr/local/app/.eslintrc
+    #  - ./lib:/usr/local/app/lib
     command: npm run test:unit
 
   app:
