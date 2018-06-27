@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint lib/**",
-    "serve": "nodemon --verbose --watch lib lib/index.js",
-    "prod": "/usr/local/bin/node lib/index.js"
+    "serve:dev": "nodemon --verbose --watch lib lib/index.js",
+    "serve:prod": "/usr/local/bin/node lib/index.js",
+    "test:unit": "lab"
   },
   "author": "",
   "license": "ISC",
@@ -18,11 +19,13 @@
     "vision": "^5.3.3"
   },
   "devDependencies": {
+    "code": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",
+    "lab": "^15.5.0",
     "nodemon": "^1.17.5"
   }
 }

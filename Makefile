@@ -8,10 +8,6 @@ build-compose:
 	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${DEV_ARGS} build
 .PHONY: build-compose
 
-build-artifact:
-	docker build -t singh1469/hapi-playground --build-arg environment=production .
-.PHONY: build-artifact
-
 lint:
 	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${DEV_ARGS} ${RUN_ARGS} ${RUN_AS_USER} lint
 .PHONY: lint
@@ -25,3 +21,7 @@ prod:
 	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${PROD_ARGS} down
 	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${PROD_ARGS} ${RUN_ARGS} ${RUN_AS_USER} --name app --service-ports app
 .PHONY: prod
+
+test:
+	${MAKEFILE_SUDO_COMMAND} ${DOCKER_COMPOSE} ${DEV_ARGS} ${RUN_ARGS} ${RUN_AS_USER} test
+.PHONY: test

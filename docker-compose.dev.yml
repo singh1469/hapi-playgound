@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 
 services:
 
@@ -8,14 +8,26 @@ services:
       args:
         environment: development
     #CI can't mount volumes!
-    #volumes:
-    #  - ./.eslintrc:/usr/local/app/.eslintrc
-    #  - ./lib:/usr/local/app/lib
+    volumes:
+      - ./.eslintrc:/usr/local/app/.eslintrc
+      - ./lib:/usr/local/app/lib
     command: npm run lint
+
+  test:
+    build:
+      context: ./
+      args:
+        environment: development
+    #CI can't mount volumes!
+    volumes:
+      - ./.eslintrc:/usr/local/app/.eslintrc
+      - ./lib:/usr/local/app/lib
+    command: npm run test:unit
 
   app:
     build:
       context: ./
+      target: development
       args:
         environment: development
     container_name: hapi-app
@@ -35,7 +47,7 @@ services:
       - db
     restart: unless-stopped
     command:
-      npm run serve
+      npm run serve:dev
 
   db:
     image: singh1469/hapi-playground-db:0.1.2

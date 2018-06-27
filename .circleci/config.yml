@@ -51,7 +51,7 @@ jobs:
           name: Build artifact
           command: |
             TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t singh1469/hapi-playground:$TAG --build-arg environment=production .
+            docker build --target release -t singh1469/hapi-playground:$TAG --build-arg environment=production .
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push singh1469/hapi-playground:$TAG
 
