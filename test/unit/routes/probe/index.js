@@ -2,7 +2,7 @@
 const { expect } = require('code');
 const Lab = require('lab');
 const { after, before, describe, it } = exports.lab = Lab.script();
-const asset = require('../../../lib/rotes/probe');
+const asset = require('../../../lib/routes/probe');
 
 describe('math', () => {
 
