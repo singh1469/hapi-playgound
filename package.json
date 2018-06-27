@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "coverage:unit": "lab test/unit -r html -o reports/coverage.html",
     "lint": "eslint lib/**",
     "serve:dev": "nodemon --verbose --watch lib lib/index.js",
     "serve:prod": "/usr/local/bin/node lib/index.js",
-    "test:unit": "lab"
+    "test:unit": "lab test/unit",
+    "test:func": "lab test/func"
   },
   "author": "",
   "license": "ISC",
