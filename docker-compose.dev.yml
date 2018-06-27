@@ -5,6 +5,7 @@ services:
   lint:
     build:
       context: ./
+      target: development
       args:
         environment: development
     #CI can't mount volumes!
@@ -16,6 +17,7 @@ services:
   test:
     build:
       context: ./
+      target: development
       args:
         environment: development
     #CI can't mount volumes!
