@@ -1,16 +1,37 @@
-'use-strict'
+'use strict'
 const { expect } = require('code');
 const Lab = require('lab');
 const { after, before, describe, it } = exports.lab = Lab.script();
-const asset = require('../../routes/probe');
+const proxyquire = require('proxyquire');
+const pluginName = 'myPlugin';
 
-describe('math', () => {
+const Plugin = proxyquire('../../../../lib/routes/probe', {
+    'handler': {
+        isReady: () => {
+            return 'ok';
+        }
+    },
+    'path': {
+        basename: () => {
+            return pluginName
+        }
+    }
+});
 
-    before(() => {});
+describe('Plugin probe', () => {
+    // before(() => {});
 
-    after(() => {});
+    // after(() => {});
 
-    it('returns properties name, register', () => {
-        expect(asset).to.be.an.object();
+    it('is an object', () => {
+        expect(Plugin).to.be.an.object();
+    });
+
+    it('have a property called name', () => {
+        expect(Plugin.name).to.equal(pluginName);
+    });
+
+    it('has a property called method', () => {
+        expect(Plugin.method).to.be.a.function();
     });
 });
