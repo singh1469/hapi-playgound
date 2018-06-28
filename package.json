@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "coverage:unit": "lab test/unit -r html -o reports/coverage.html",
+    "coverage:unit": "lab test/unit -r console -o stdout -r html -o reports/coverage.html",
     "lint": "eslint lib/**",
     "serve:dev": "nodemon --verbose --watch lib lib/index.js",
     "serve:prod": "/usr/local/bin/node lib/index.js",
@@ -28,6 +28,7 @@
     "hapi-swagger": "^9.1.1",
     "inert": "^5.1.0",
     "lab": "^15.5.0",
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "proxyquire": "^2.0.1"
   }
 }
