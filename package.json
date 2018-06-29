@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "coverage:unit": "lab test/unit -r console -o stdout -r html -o reports/coverage.html",
+    "coverage:unit": "lab test/unit -r console -o stdout -r html -o reports/coverage-unit.html",
+    "coverage:func": "lab test/func -r console -o stdout -r html -o reports/coverage-func.html",
+    "coverage:all": "lab test -r console -o stdout -r html -o reports/coverage-all.html",
     "lint": "eslint lib/**",
     "serve:dev": "nodemon --verbose --watch lib lib/index.js",
     "serve:prod": "/usr/local/bin/node lib/index.js",
