@@ -31,7 +31,7 @@ describe('Plugin probe', () => {
         expect(Plugin.name).to.equal(pluginName);
     });
 
-    it('has a property called method', () => {
-        expect(Plugin.method).to.be.a.function();
+    it('has a property called register', () => {
+        expect(Plugin.register).to.be.a.function();
     });
 });
